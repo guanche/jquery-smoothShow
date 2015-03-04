@@ -1,11 +1,16 @@
 /**
- * Own jQuery plugin as alternative to
- * the build in show() function
+ * smoothShow Plugin v0.1.0
+ *
+ * Author: Renzo Sartorius
+ * Created: March 04, 2015
+ * Url: https://github.com/guanche/jquery-smoothShow
  */
+
+
 ;(function ($) {
     $.fn.smoothShow = function(options) {
         
-        var defaults = { speed : 0.3, returnPromise : true },
+        var defaults = { duration : 0.3, returnPromise : true },
             settings = $.extend({}, defaults, options),
             index = 1, self = this, dfd = null,
                         
@@ -15,7 +20,7 @@
             var wrapperId = 'elWrapper_'+uniqueId(),
                 $el = $(this),
                 wrapperEl = '<div id="'+wrapperId+'" data-type="smoothShowWrapper" style="transition:max-height '+
-                            settings.speed+'s;max-height:0px;"></div>';
+                            settings.duration+'s;max-height:0px;"></div>';
 
             if ($el.css('display') === 'block' ||
                 $el.parent().data('type') === 'smoothHideWrapper' ||
@@ -30,7 +35,7 @@
                 
             var height = $el.wrap(wrapperEl)
                             .css({
-                                transition: 'all '+settings.speed+'s',
+                                transition: 'all '+settings.duration+'s',
                                 transform : 'translateY(-10px)',
                                 visibility : 'hidden',
                                 display : 'block',
@@ -53,7 +58,7 @@
                 if(settings.returnPromise && index === self.length) {
                     dfd.resolve();
                 }
-            }, settings.speed * 1000);
+            }, settings.duration * 1000);
 
             if (index !== self.length) index++;
 
@@ -73,14 +78,14 @@
 (function ($) {
     $.fn.smoothHide = function(options) {
         
-        var defaults = { speed : 0.3, returnPromise : true },
+        var defaults = { duration : 0.3, returnPromise : true },
             settings = $.extend({}, defaults, options),
             index = 1, self = this, dfd = null;
 
         jqThis = this.each(function() {
                 var wrapperId = 'elWrapper_'+uniqueId(), $el = $(this),
                     wrapperEl = '<div id="'+wrapperId+'" data-type="smoothHideWrapper" style="transition:max-height '+
-                                settings.speed+'s;max-height:'+$el.outerHeight()+'px;"></div>';
+                                settings.duration+'s;max-height:'+$el.outerHeight()+'px;"></div>';
 
             if ($el.css('display') === 'none' ||
                 $el.parent().data('type') === 'smoothHideWrapper' ||
@@ -94,7 +99,7 @@
             }
 
             $el.wrap(wrapperEl).css({
-                transition: 'all '+settings.speed+'s',
+                transition: 'all '+settings.duration+'s',
                 transform : 'translateY(0px)',
                 opacity: 1
             });
@@ -117,7 +122,7 @@
                 if(settings.returnPromise && index === self.length) {
                     dfd.resolve();
                 }
-            }, settings.speed * 1000);
+            }, settings.duration * 1000);
 
             if (index !== self.length) index++;
 
@@ -132,10 +137,11 @@
     function uniqueId() { return Math.round(new Date().getTime() + (Math.random() * 100)); }
 }(jQuery));
 
+
 (function ($) {
     $.fn.smoothToggle = function(options) {
         
-        var defaults = { speed : 0.3, returnPromise : true },
+        var defaults = { duration : 0.3, returnPromise : true },
             settings = $.extend({}, defaults, options),
             response, toggleDfd,
 
