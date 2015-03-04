@@ -69,13 +69,8 @@
         return jqThis;
     };
 
-    function uniqueId() { return Math.round(new Date().getTime() + (Math.random() * 100)); }
-    
-}(jQuery));
 
 
-
-(function ($) {
     $.fn.smoothHide = function(options) {
         
         var defaults = { duration : 0.3, returnPromise : true },
@@ -135,12 +130,7 @@
 
     };
 
-    function uniqueId() { return Math.round(new Date().getTime() + (Math.random() * 100)); }
-}(jQuery));
 
-
-
-(function ($) {
     $.fn.smoothToggle = function(options) {
         
         var defaults = { duration : 0.3, returnPromise : true },
@@ -164,5 +154,7 @@
         }
 
     };
-}(jQuery));
 
+    function uniqueId() { return Math.round(new Date().getTime() + (Math.random() * 100)); }
+    
+}(jQuery));
