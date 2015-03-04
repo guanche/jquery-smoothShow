@@ -16,7 +16,16 @@ It's simple, doesn't have as many options as the build-in version, but it gets t
 
 ```html
 <script>
-    $('.your-selector').smoothShow();
+    // Using the done method of the promise
+    $('.your-selector').smoothShow().done(function() {
+        /* All done here */
+    });
+    
+    // Setting a config
+    $('#otherSelector').toggle({ duration : 42 });
+    
+    // But 90% of the time I use it as is
+    $('.close-this-stuff').smoothHide();
 </script>
 ```
 
