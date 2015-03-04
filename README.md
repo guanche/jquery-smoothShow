@@ -3,7 +3,7 @@ An all css animated alternative for jQuery's build-in show() hide() and toggle()
 
 
 ## In brief
-The performance of the build-in `$.show()`, `$.hide()` and subsequent `$.toggle()`, is not that great (See this [comment](https://twitter.com/paul_irish/status/564443848613847040) from Paul Irish on the matter). This is because it animates the width, height and opacity of the element as fast as it can, at the by you givin rate. This little plugin makes use of pure **CSS only** animated properties, with all the performance gain that comes with it.
+The performance of the build-in `$.show()`, `$.hide()` and subsequent `$.toggle()`, is not that great (See this [comment](https://twitter.com/paul_irish/status/564443848613847040) from Paul Irish on the matter). This is because it animates the width, height and opacity of the element as fast as it can, at the by you given rate. This little plugin makes use of pure **CSS only** animated properties, with all the performance gain that comes with it.
 
 It will work in browsers that support CSS animations, `max-height` and `transform: translateY()`. So just about any out there.
 
@@ -22,7 +22,7 @@ It's simple, doesn't have as many options as the build-in version, but it gets t
     });
     
     // Setting a config
-    $('#otherSelector').toggle({ duration : 42 });
+    $('#otherSelector').smoothToggle({ duration : 42 });
     
     // But 90% of the time I use it as is
     $('.close-this-stuff').smoothHide();
@@ -30,8 +30,8 @@ It's simple, doesn't have as many options as the build-in version, but it gets t
 ```
 
 ## Options
-- `duration` | int | Length of the animation in seconds. Defaults to 0.3
-- `returnPromise` | boolean | Wheter or not to return a jQ promise object. When false it returns itself for method chaining.  Defaults to `true`
+- `duration` (int) Length of the animation in seconds. Defaults to 0.3
+- `returnPromise` (boolean) Wheter or not to return a jQ promise object. When false it returns itself for method chaining.  Defaults to `true`
 
 ## Feedback
 Yes, please do.
