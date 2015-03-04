@@ -3,7 +3,7 @@
  *
  * Author: Renzo Sartorius
  * Created: March 04, 2015
- * Url: https://github.com/guanche/jquery-smoothShow
+ * URL: https://github.com/guanche/jquery-smoothShow
  */
 
 
@@ -82,6 +82,7 @@
             settings = $.extend({}, defaults, options),
             index = 1, self = this, dfd = null;
 
+
         jqThis = this.each(function() {
                 var wrapperId = 'elWrapper_'+uniqueId(), $el = $(this),
                     wrapperEl = '<div id="'+wrapperId+'" data-type="smoothHideWrapper" style="transition:max-height '+
@@ -107,7 +108,7 @@
             if(settings.returnPromise && index === self.length) dfd = $.Deferred();
 
             // Set timeout 0 hack.. don't know why, but 
-            // wont work outherwise
+            // wont work otherwise
             setTimeout(function() {
                 $('#'+wrapperId).css('maxHeight', '0px');
 
@@ -138,12 +139,14 @@
 }(jQuery));
 
 
+
 (function ($) {
     $.fn.smoothToggle = function(options) {
         
         var defaults = { duration : 0.3, returnPromise : true },
             settings = $.extend({}, defaults, options),
             response, toggleDfd,
+
 
         jqThis = this.each(function() {
             var $el = $(this);
@@ -162,3 +165,4 @@
 
     };
 }(jQuery));
+
